@@ -11,12 +11,21 @@
 		}, {
 			"path": "pages/video/video",
 			"style": {
-				"navigationBarTitleText": "视频"
+				"navigationBarTitleText": "视频",
+				"app-plus": {
+					"titleNView": false,
+					"bounce": "none",
+					"disabledScroll": true
+				}
 			}
 		}, {
 			"path": "pages/mine/mine",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
 		}, {
 			"path": "pages/cloud/cloud",

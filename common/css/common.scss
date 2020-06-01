@@ -98,7 +98,6 @@ button:after {
 .line-item {
 	background: #fff;
 	padding-left: 30rpx;
-	padding-right: 65rpx;
 	color: #666;
 	line-height: 100rpx;
 	font-size: 27rpx;
@@ -110,8 +109,9 @@ button:after {
 			right: 40rpx;
 			top: 50rpx;
 			width: 15rpx;
-			border-top: 3rpx solid #666;
-			border-right: 3rpx solid #666;
+			height: 15rpx;
+			border-top: 3rpx solid #ccc;
+			border-right: 3rpx solid #ccc;
 			transform: rotate(45deg);
 		}
 	}
