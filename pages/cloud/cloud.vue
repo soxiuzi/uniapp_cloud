@@ -29,7 +29,7 @@
 					<view class="video-list flex-box">
 						<view class="video-item" v-for="(item, index) in showList.colList1" :key="index">
 							<view class="video-wrap">
-								<image :src="item.coverUrl" mode="widthFix"></image>
+								<image class="img" :src="item.coverUrl" mode="widthFix"></image>
 								<view class="video-con">
 									<view class="desc">{{item.title}}</view>
 									<view class="creater-bar flex-box">
@@ -108,8 +108,6 @@
 		onLoad() {
 			let date = new Date()
 			this.dateMsg.curDate = String(date).split(' ')
-			console.log('时间：', date)
-			console.log('时间：', String(date).split(' '))
 			this.switchTab(3245, 1)
 		},
 		methods: {

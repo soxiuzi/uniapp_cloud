@@ -39,7 +39,11 @@
 		}, {
 			"path": "pages/account/account",
 			"style": {
-				"navigationBarTitleText": "账号"
+				"navigationBarTitleText": "账号",
+				"navigationStyle":"custom",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
 		}
 	],
