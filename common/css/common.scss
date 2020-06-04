@@ -3,13 +3,12 @@ page {
 	line-height: 1.5;
 	color: #2c3e50;
 	background: #fff;
-	font-family: 'PingFang-SC-Medium';
+	-webkit-overflow-scrolling: touch; /*使iOS列表滑动流畅*/
 }
 
 button {
-	color: #333
+	color: #333;
 }
-
 page,
 view,
 input,
@@ -44,7 +43,7 @@ cover-view {
 	display: none;
 }
 .clearfix:after {
-	content: '';
+	content: '.';
 	display: block;
 	height: 0;
 	clear: both;
@@ -62,9 +61,8 @@ cover-view {
 .tac {
 	text-align: center;
 }
-
-// 隐藏滚动条
-::-webkit-scollbar {
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
 	display: none;
 }
 button:after {
@@ -76,11 +74,11 @@ button:after {
 		flex: 1;
 	}
 }
+
 .footer-box {
 	height: 100rpx;
 }
-
-// 单双行文本溢出显示省略号
+/* // 单双行换行 */
 .ellipsis {
 	overflow: hidden;
 	white-space: nowrap;
