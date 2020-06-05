@@ -102,15 +102,284 @@
 </template>
 
 <script>
+	import { mapState, mapMutations } from 'vuex'
+	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
+	import uniList from '@/components/uni-list/uni-list.vue'
+	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
+	import scan from '@/components/scan/scan.vue'
+	
 	export default {
+		components: {
+			uniNavBar,
+			uniList,
+			uniListItem,
+			scan
+		},
 		data() {
 			return {
-				
+				title: '',
+				scrollTop: 0,
+				isShowScan: false
 			};
+		},
+		onLoad(options){},
+		computed:{
+			...mapState(['hasLogin', 'userInfo'])
+		},
+		methods: {
+			// 退出登录
+			...mapMutations(['storeLogout']),
+			switchChange(e) {
+				uni.showToast({
+					title: 'change:' + e.value,
+					icon: 'none'
+				})
+			},
+			// 退出登录 清空缓存
+			confirmOut() {
+				uni.showModal({
+					title: '网易云音乐',
+					content: '确定退出当前账号吗？',
+					cancelColor: '#007AFF',
+					success: res => {
+						if (res.confirm) {
+							this.confirmLogout()
+						} else if (res.cancel) {
+							console.log('用户点击取消')
+						}
+					}
+				})
+			},
+			// 确定退出
+			confirmLogout() {
+				unui.request({
+					url: this.$websiteUrl + '/logout',
+					method: 'GET',
+					data: {},
+					success: res => {
+						this.storeLogout()
+						// 到登录页
+						uni.navigateTo({
+							url: '/pages/logIn/logIn'
+						})
+					}
+				})
+			},
+			// 滚动到顶部标题变换
+			scroll(e) {
+				let scrollTop = e.detail.scrollTop
+				if (scrollTop < 5) {
+					this.title = ''
+					this.scrollTop = 0
+				} else {
+					this.title = '账号'
+				}
+			},
+			// 打开扫描
+			openScan() {
+				this.$refs.scan.open()
+				this.isShowScan = true
+				// 隐藏底部 tabbar
+				uni.hideTabBar({})
+			},
+			// 隐藏扫描
+			closeScan() {
+				this.$refs.scan.close()
+				this.isShowScan = false
+				uni.showTabBar({})
+			},
+			// 扫码成功
+			getScanCode(val) {
+				this.closeScan()
+				uni.showToast({
+					icon: 'none',
+					title: '扫码成功'
+				})
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
+page {
+	color: #333;
+}
 
+.scan-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.8);
+	transform: translateX(100%);
+	transition: transform 0.05s;
+	&.active {
+		transfrom: translateX(0)
+	}
+}
+.tac {
+	flex: 1;
+	text-align: center;
+}
+.top-img {
+	width: 50rpx;
+	height: 40rpx;
+	&.left {
+		margin-left: 10rpx;
+	}
+}
+.page-content {
+	position: fixed;
+	top: 64px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/* #ifdef H5 */
+	top: 44px;
+	bottom: 100rpx;
+	/* #endif */
+	background-color: #F8F8F8;
+}
+.mt16 {
+	margin-top: 16rpx;
+}
+.bgf {
+	background-color: #fff;
+}
+.empty-user {
+	background-color: #fff;
+	padding-top: 40rpx;
+	text-align: center;
+	line-height: 50rpx;
+	
+	.btn {
+		width: 710rpx;
+		height: 80rpx;
+		margin: 22rpx auto 0;
+		text-align: center;
+		line-height: 80rpx;
+		border: 2rpx solid #cdcdcd;
+		border-radius: 80rpx;
+		font-size: 32rpx;
+	}
+}
+
+.userinfo-box {
+	padding-top: 46rpx;
+	
+	.avator {
+		width: 120rpx;
+		height: 120rpx;
+		margin: 0 32rpx;
+		border-radius: 120rpx;
+		color: #fff;
+		background-color: #d6d8da;
+		overflow: hidden;
+	}
+	
+	.img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.name {
+		color: #302f30;
+		line-height: 68rpx;
+		font-weight: 600;
+	}
+	
+	.sign {
+		width: 128rpx;
+		height: 52rpx;
+		margin-top: 16rpx;
+		margin-right: 32rpx;
+		border-radius: 52rpx;
+	}
+	
+	.level {
+		width: 100rpx;
+		height: 50rpx;
+		text-align: center;
+		line-height: 50rpx;
+		border-radius: 50rpx;
+		color: #838080;
+		background-color: #d7d3d4;
+		transfrom: scale(0.8)
+	}
+}
+
+.nav-bar {
+	margin-top: 38rpx;
+	text-align: center;
+	font-weight: 600;
+	
+	.flex-item {
+		height: 80rpx;
+		border-right: 1rpx solid #cdcacb;
+		
+		&:last-child {
+			border: 0;
+		}
+	}
+	
+	.txt {
+		color: #939293;
+		font-weight: 400;
+	}
+}
+
+.ad-bar {
+	padding-top: 32rpx;
+	
+	.img {
+		display: block;
+		width: 686rpx;
+		height: 120rpx;
+		margin: 0 auto;
+	}
+}
+
+.mall-bar {
+	padding-top: 38rpx;
+	padding-bottom: 20rpx;
+	text-align: center;
+	font-weight: 600;
+	font-size: 26rpx;
+	background-color: #fff;
+	line-height: 35rpx;
+	
+	.icon {
+		display: block;
+		width: 48rpx;
+		height: 48rpx;
+		margin: 0 auto 24rpx;
+	}
+	
+	.txt {
+		color: #999;
+		font-weight: 400;
+		font-size: 24rpx;
+		transform: scale(0.84);
+	}
+}
+
+.line-item {
+	.icon {
+		float: left;
+		width: 35rpx;
+		height: 32rpx;
+		margin-top: 30rpx;
+		margin-right: 36rpx;
+	}
+}
+
+.logout {
+	height: 100rpx;
+	margin-top: 16rpx;
+	text-align: center;
+	line-height: 100rpx;
+	color: $color;
+	background-color: #fff;
+}
 </style>
