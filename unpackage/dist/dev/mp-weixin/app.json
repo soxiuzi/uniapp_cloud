@@ -4,9 +4,24 @@
     "pages/video/video",
     "pages/mine/mine",
     "pages/cloud/cloud",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/subpages/account/login",
+    "pages/subpages/index/album"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "pages/subpages/index",
+      "pages": [
+        "album"
+      ]
+    },
+    {
+      "root": "pages/subpages/account",
+      "pages": [
+        "login"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "网易云音乐",

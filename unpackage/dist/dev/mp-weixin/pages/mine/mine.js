@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "uni-nav-bar": function() {
-    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 79))
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 67))
   }
 }
 var render = function() {
@@ -227,7 +227,7 @@ var _index = __webpack_require__(/*! @/apis/index.js */ 24); //
 //
 //
 //
-var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 79));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var songList = function songList() {__webpack_require__.e(/*! require.ensure | components/songList */ "components/songList").then((function () {return resolve(__webpack_require__(/*! @/components/songList.vue */ 63));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { uniNavBar: uniNavBar, songList: songList }, data: function data() {return { navList: [{ name: '私人FM', imd: 1 }, { name: '最嗨电音', imd: 2 }, { name: 'ACG专区', imd: 3 }, { name: 'Sati空间', imd: 4 }, { name: '私藏推荐', imd: 5 }, { name: '因乐交友', imd: 6 }, { name: '亲子频道', imd: 7 }, { name: '古典专区', imd: 8 }], recommendSongs: [] };}, onLoad: function onLoad() {this.getNavList();this.getRecommendSongs();}, methods: { // 获取导航
+var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var songList = function songList() {__webpack_require__.e(/*! require.ensure | components/songList */ "components/songList").then((function () {return resolve(__webpack_require__(/*! @/components/songList.vue */ 83));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { uniNavBar: uniNavBar, songList: songList }, data: function data() {return { navList: [{ name: '私人FM', imd: 1 }, { name: '最嗨电音', imd: 2 }, { name: 'ACG专区', imd: 3 }, { name: 'Sati空间', imd: 4 }, { name: '私藏推荐', imd: 5 }, { name: '因乐交友', imd: 6 }, { name: '亲子频道', imd: 7 }, { name: '古典专区', imd: 8 }], recommendSongs: [] };}, onLoad: function onLoad() {this.getNavList();this.getRecommendSongs();}, methods: { // 获取导航
     getNavList: function getNavList() {var params = { id: 124 }; // apiGetNavList(params).then(res => {
       // 	this.navList = res.mock.navList;
       // 	const tempId = this.navList[0].id;

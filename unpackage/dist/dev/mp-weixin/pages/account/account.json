@@ -1,4 +1,10 @@
 {
   "navigationBarTitleText": "账号",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "uni-list": "/components/uni-list/uni-list",
+    "uni-list-item": "/components/uni-list-item/uni-list-item",
+    "scan": "/components/scan/scan"
+  }
 }

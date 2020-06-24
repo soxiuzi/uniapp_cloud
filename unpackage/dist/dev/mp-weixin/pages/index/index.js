@@ -93,7 +93,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  "uni-nav-bar": function() {
+    return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 67))
+  },
+  "mescroll-uni": function() {
+    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 74))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -131,7 +138,33 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -278,21 +311,95 @@ var _index = __webpack_require__(/*! ../../apis/index.js */ 24); //
 //
 //
 //
-var songList = function songList() {__webpack_require__.e(/*! require.ensure | components/songList */ "components/songList").then((function () {return resolve(__webpack_require__(/*! ../../components/songList.vue */ 63));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { songList: songList }, data: function data() {return { swiper: [], curDate: '', contentBar: [{ name: "每日推荐" }, { name: "歌单" }, { name: "排行榜" }, { name: "电台" }, { name: "直播" }], recommendSongs: [], newType: 1, latestTempAlbum: [], latestAlbum: [], relatedVideo: [], hotList: [] };}, onLoad: function onLoad() {this.getBanner();this.getRecommendList();this.getLatestAlbum();this.getRelatedVideo();this.curDate = new Date().getDate();}, methods: { // 获取轮播图
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var songList = function songList() {__webpack_require__.e(/*! require.ensure | components/songList */ "components/songList").then((function () {return resolve(__webpack_require__(/*! ../../components/songList.vue */ 83));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var MescrollUni = function MescrollUni() {Promise.all(/*! require.ensure | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then((function () {return resolve(__webpack_require__(/*! @/components/mescroll-uni/mescroll-uni.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var search = function search() {Promise.all(/*! require.ensure | components/search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/search")]).then((function () {return resolve(__webpack_require__(/*! @/components/search.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { songList: songList, search: search, uniNavBar: uniNavBar, MescrollUni: MescrollUni }, data: function data() {return { searchTxt: '周杰伦', isShowSearch: false, // 下拉刷新的常用配置
+      downOption: { auto: false }, // 上拉加载的常用配置
+      upOption: { auto: false, page: { num: 0, size: 10 } }, swiper: [], curDate: '', contentBar: [{ name: '每日推荐' }, { name: '歌单' }, { name: '排行榜' }, { name: '电台' }, { name: '直播' }], recommendSongs: [], newType: 1, latestTempAlbum: [], latestAlbum: [], relatedVideo: [], hotList: [] };}, onLoad: function onLoad() {this.getBanner();this.getRecommendList();this.getLatestAlbum();this.getRelatedVideo();this.getHotList();this.curDate = new Date().getDate();}, methods: { // 获取轮播图
     getBanner: function getBanner() {var _this = this;(0, _index.apiGetBanner)().then(function (res) {_this.swiper = res.banners;});}, // 获取推荐歌单列表
     getRecommendList: function getRecommendList() {var _this2 = this;var params = { limit: 6 };(0, _index.apiGetRecommendSongs)(params).then(function (res) {// 格式化播放量数据
         var formatCount = function formatCount(data) {var tempNum = data;if (data > 100000) {tempNum = parseInt(data / 10000) + '万';}return tempNum;};_this2.recommendSongs = res.result;_this2.recommendSongs.forEach(function (item) {item.playCount = formatCount(item.playCount);});});}, // 切换新碟新歌
     switchTab: function switchTab(type) {this.newType = type;var temp = { s: type == 1 ? 0 : 3, e: type == 1 ? 3 : 6 };this.latestAlbum = this.latestTempAlbum.slice(temp.s, temp.e);}, // 获取新碟
-    getLatestAlbum: function getLatestAlbum() {var _this3 = this;(0, _index.apiGetTopAlbum)().then(function (res) {_this3.latestTempAlbum = res.albums;_this3.latestAlbum = res.albums.slice(0, 3);});},
-    // 获取相关视频
-    getRelatedVideo: function getRelatedVideo() {var _this4 = this;
-      var params = {
-        id: 32154 };
+    getLatestAlbum: function getLatestAlbum() {var _this3 = this;(0, _index.apiGetTopAlbum)().then(function (res) {_this3.latestTempAlbum = res.albums;_this3.latestAlbum = res.albums.slice(0, 3);});}, // 获取相关视频
+    getRelatedVideo: function getRelatedVideo() {var _this4 = this;var params = { id: 6524 };(0, _index.apiGetRelatedVideo)(params).then(function (res) {_this4.relatedVideo = res.data;});}, getList: function getList(pageNum, pageSize, successCallback, errorCallback) {var params = { id: 4571 + pageNum, pageNum: pageNum, pageSize: pageSize };
 
       (0, _index.apiGetRelatedVideo)(params).then(function (res) {
-        _this4.relatedVideo = res.data;
+        successCallback && successCallback(res.data);
+      }, function (res) {
+        errorCallback && errorCallback();
       });
+    },
+    // hot 列表
+    getHotList: function getHotList() {var _this5 = this;
+      var params = {
+        limit: 10,
+        order: 'hot' };
+
+      (0, _index.apiGetHotList)(params).then(function (res) {
+        _this5.hotList = res.playlist;
+      });
+    },
+    // 跳转链接
+    goUrl: function goUrl(url) {
+      uni.navigateTo({
+        url: url });
+
+    },
+    // 打开搜索
+    openSearch: function openSearch() {
+      this.isShowSearch = true;
+      this.$refs.search.open();
+    },
+    // 关闭搜索
+    closeSearch: function closeSearch() {
+      this.isShowSearch = false;
+    },
+    // 下拉刷新的回调
+    downCallback: function downCallback(mescroll) {
+      mescroll.resetUpScroll();
+    },
+    // 上拉加载的回调
+    upCallback: function upCallback(mescroll) {var _this6 = this;
+      this.getList(mescroll.num, mescroll.size, function (res) {
+        // 设置列表
+        if (mescroll.num == 1) _this6.relatedVideo = [];
+        _this6.relatedVideo = _this6.relatedVideo.concat(res);
+        mescroll.endSuccess();
+      }, function () {
+        mescroll.endErr();
+      });
+    },
+    goCloud: function goCloud() {
+      uni.showToast({
+        icon: 'none',
+        title: '功能未开发' });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "发现",
   "usingComponents": {
-    "song-list": "/components/songList"
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni",
+    "song-list": "/components/songList",
+    "search": "/components/search"
   }
 }

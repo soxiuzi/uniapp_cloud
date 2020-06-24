@@ -20,6 +20,16 @@ export function apiGetRecommendSongs(data) {
 	})
 }
 
+// 获取index
+export function apiGetIndexData(data) {
+	return request.request({
+		url: '/aaIndex',
+		method: 'GET',
+		data,
+		authType: 'None'
+	})
+}
+
 // 获取新碟
 export function apiGetTopAlbum(data) {
 	return request.request({
@@ -34,6 +44,15 @@ export function apiGetTopAlbum(data) {
 export function apiGetRelatedVideo(data) {
 	return request.request({
 		url: '/related/allvideo',
+		method: 'GET',
+		data,
+		authType: 'None'
+	})
+}
+
+export function apiGetHotList(data) {
+	return request.request({
+		url: '/top/playlist',
 		method: 'GET',
 		data,
 		authType: 'None'

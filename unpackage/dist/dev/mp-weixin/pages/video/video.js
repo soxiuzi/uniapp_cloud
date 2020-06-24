@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "mescroll-uni": function() {
-    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 70))
+    return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ 74))
   }
 }
 var render = function() {
@@ -203,7 +203,7 @@ var _index = __webpack_require__(/*! @/apis/index.js */ 24); //
 //
 //
 //
-var MescrollUni = function MescrollUni() {Promise.all(/*! require.ensure | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then((function () {return resolve(__webpack_require__(/*! @/components/mescroll-uni/mescroll-uni.vue */ 70));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { MescrollUni: MescrollUni }, data: function data() {return { // 下拉刷新的常用配置
+var MescrollUni = function MescrollUni() {Promise.all(/*! require.ensure | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then((function () {return resolve(__webpack_require__(/*! @/components/mescroll-uni/mescroll-uni.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { MescrollUni: MescrollUni }, data: function data() {return { // 下拉刷新的常用配置
       downOption: { auto: false // 是否再初始化后，自动执行下拉回调callback，默认true
       }, // 上拉加载的常用配置
       upOption: { auto: false, page: { num: 0, size: 10 } }, navList: [{ name: '推荐', id: 34573 }, { name: 'LOCK直播', id: 23472 }, { name: '翻唱', id: 33485 }, { name: '广场', id: 4652 }, { name: '舞蹈', id: 658785 }, { name: '游戏', id: 62689 }, { name: '现场', id: 7456345 }], curNav: '', sliderOffset: 0, sliderWidth: 60, relatedVideo: [], refreshing: false };},

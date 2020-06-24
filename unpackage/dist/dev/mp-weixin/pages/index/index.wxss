@@ -28,6 +28,43 @@ page {
   color: #1a1a1a;
   font-size: 24rpx;
 }
+.dpn {
+  display: none;
+}
+.top-img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 10rpx;
+}
+.top-search {
+  width: 560rpx;
+  width: 460rpx;
+  margin-left: -60rpx;
+  height: 72rpx;
+  margin-right: 24rpx;
+  border-radius: 72rpx;
+  color: #c6c6c6;
+  background: #f7f7f7;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.top-search .search-icon {
+    width: 28rpx;
+    height: 29rpx;
+    margin-right: 12rpx;
+}
+.page-content {
+  position: fixed;
+  top: 64rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 44px;
+}
 .banner {
   width: 100%;
   height: 268rpx;
@@ -145,7 +182,7 @@ page {
     line-height: 34rpx;
 }
 .song-list .item:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -190,7 +227,7 @@ page {
     width: 686rpx;
     height: 490rpx;
     margin: 0 auto;
-    background: #F8F8F8;
+    background: #f8f8f8;
     border-radius: 10rpx;
     overflow: hidden;
     margin-bottom: 24rpx;
